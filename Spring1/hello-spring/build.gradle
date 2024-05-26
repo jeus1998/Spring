@@ -20,8 +20,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	// JDBC
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // <- jpa
+	// implementation 'org.springframework.boot:spring-boot-starter-jdbc'  <- jdbc starter-data-jpa 안에 jdbc 포함
 	runtimeOnly 'com.h2database:h2'
 }
 

@@ -4,11 +4,18 @@ import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 // @Service @Configuration 통해서 등록
+
+/**
+ * JPA를 사용하려면 항상 트랜잭션이 있어야 한다. (데이터 저장만)
+ * 그래서 서비스 계층에 -> @Transactional
+ */
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
     @Autowired
