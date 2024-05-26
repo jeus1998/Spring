@@ -8,9 +8,18 @@ spring.datasource.url=jdbc:h2:tcp://localhost/~/test
 spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.username=sa
 
+## 1) 순수 JDBC
+
 Jdbc 리포지토리 구현 -> JdbcMemberRepository.java
 
 # SpringConfig 수정 - MemberRepository
 MemoryMemberRepository -> JdbcMemberRepository 구현체 변경
 이제 H2 DB에 저장된다.
 
+## 2) 스프링 JdbcTemplate
+
+- 순수 Jdbc와 동일한 환경설정
+- 스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다.
+- SQL은 직접 작성해야 한다.
+
+JdbcTemplate 리포지토리 구현 -> JdbcTemplateMemberRepository.java
