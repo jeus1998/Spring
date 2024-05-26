@@ -1,0 +1,35 @@
+
+## AOP가 필요한 상황
+
+- 모든 메소드의 호출 시간을 측정하고 싶다면?
+- 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern)
+- 회원 가입 시간, 회원 조회 시간을 측정하고 싶다면?
+
+메서드 1000개라면 1000개에 시간 측정 로직 추가..?
+
+public Long join (Member member){
+
+        long start = System.currentTimeMillis();
+
+        try {
+            // 중복 회원 검증
+            validateDuplicateMember(member);
+
+            memberRepository.save(member);
+            return member.getId();
+        }
+        finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join = " + timeMs + "ms");
+        }
+}
+
+이런 로직을 메서드 단위로 추가 하려면 너무 많은 시간이 들고 유지보수가 어렵다...
+
+문제
+- 회원가입, 회원 조회에 시간을 측정하는 기능은 핵심 관심 사항(core-concern)이 아니다.
+- 시간을 측정하는 로직은 공통 관심 사항(cross-cutting-concern)이다.
+- 시간을 측정하는 로직과 핵심 비즈니스 로직이 섞여서 유지보수가 어렵다.
+- 시간을 측정하는 로직을 변경할 때 모든 로직을 찾아가면서 변경해야 한다.
+
