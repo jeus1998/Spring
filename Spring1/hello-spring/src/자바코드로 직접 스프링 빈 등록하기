@@ -1,0 +1,38 @@
+
+# DI 종류
+- 필드 주입, setter 주입, 생성자 주입
+- 의존관계가 실행중에 동적으로 변하는 경우는 거의 없다. 그래서 서버가 처음 올라갈 때 생성자로 스프링 빈 등록 & DI를 하는게 제일 좋다.
+
+    DI(필드 주입)
+    @Autowired private MemberService memberService;
+
+    DI(세터 주입)
+    @Autowired
+    public void setMemberService(MemberService, memberService){
+        this.memberService = memberService;
+    }
+
+    DI(생성자 주입)
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
+실무에서 주로 정형화된 컨트롤러, 서비스, 리포지토리 같은 코드는 컴포넌트 스캔을 사용
+그리고 정형화되지 않거나, 상황에 따라 구현 클래스를 변경해야 하면 설정을 통해 스프링 빈으로 등록한다.
+-> @Configuration + @Bean
+
+
+@Component 스캔 방식이 아닌 직접 스프링 빈 등록 방법
+
+@Configuration
+public class SpringConfig {
+    @Bean
+    public MemberService memberService(){
+        return new MemberService(memberRepository());
+    }
+    @Bean
+    public MemberRepository memberRepository(){
+        return new MemoryMemberRepository();
+    }
+}

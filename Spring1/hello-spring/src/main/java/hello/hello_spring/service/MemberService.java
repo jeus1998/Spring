@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+// @Service @Configuration 통해서 등록
 public class MemberService {
     private final MemberRepository memberRepository;
     @Autowired
