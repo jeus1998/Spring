@@ -58,3 +58,79 @@ JPQL , EntityManager, JPQL 예시  -> JpaMemberRepository.java 참고
 
 JPA에서 데이터 저장을 하려면 트랜잭션 안에서 실행 되어야 한다.
 서비스 계층에  @Transactional 추가  or 회원가입 부분 method 범위에서 @Transactional 추가
+
+
+## 4) 스프링 데이터 JPA
+
+스프링 부트와 JPA만 사용해도 개발 생산성이 정말 많이 증가한다.
+여기에 스프링 데이터 JPA를 사용하면 리포지토리 구현 클래스 없이 인터페이스 만으로 개발을 완료할 수 있다.
+반복 개발해온 기본 CRDU 기능도 스프링 데이터 JPA가 모두 제공
+
+환경설정: 앞의 JPA 설정을 그대로 사용
+
+SpringDataJapMemberRepository.java 참고
+
+스프링 데이터 JPA가 SpringDataJpaMemberRepository 를 스프링 빈으로 자동 등록해준다.
+
+스프링 데이터 JPA 제공 클래스
+
+스프링 DATA
+----------------------------------------------------------
+            <<Interface>>
+             Repository
+                 ^
+                 |
+            <<Interface>>
+            CRUDRepository
+           - save(S) : S
+           - fineOne(ID) : T
+           - exists(ID) : boolean
+           - count() : long
+           - delete(T)
+           ....
+                ^
+                |
+            <<Interface>>
+        PagingAndSortingRepository
+           - findAll(Sort) : Iterable<T>
+           - findAll(Pageable) : Page<T>
+                ^
+                |
+----------------------------------------------------------
+                |
+                |
+스프링 데이터 JPA  |
+                |
+                |
+----------------------------------------------------------
+           <<Interface>>
+           JpaRepository
+         - findAll() : List<T>
+         - findAll(Sort) : List<T>
+         - save(Iterable<S>) : List<S>
+         - flush()
+         - saveAndFlush(T) : T
+         - deleteInBatch(Iterable<T>)
+         - deleteAllInBatch()
+         - getOne(ID) : T
+----------------------------------------------------------
+
+스프링 데이터 JPA 제공 기능
+- 인터페이스를 통한 기본적인 CRUD -> CRUDRepository 인터페이스
+- findByName() , findByEmail() 처럼 메서드 이름 만으로 조회 기능 제공 -> JPQL 생성
+- 페이징 기능 자동 제공 -> PagingAndSortingRepository 인터페이스
+
+
+객체가 너무 많기 때문에 모든걸 공통화 불가능 이런 부분은 JPQL 생성해서 처리
+
+    JPQL select m from Member m where m.name = ?
+    @Override
+    Optional<Member> findByName(String name);
+
+실무에서는 JPA와 스프링 데이터 JPA를 기본으로 사용하고, 복잡한 동적 쿼리는 Querydsl이라는
+라이브러리를 사용하면 된다.
+Querydsl을 사용하면 쿼리도 자바 코드로 안전하게 작성할 수 있고, 동적 쿼리도
+편리하게 작성할 수 있다
+이 조합으로 해결하기 어려운 쿼리는 JPA가 제공하는 네이티브 쿼리를 사용하거나, 앞
+서 학습한 스프링 JdbcTemplate를 사용하면 된다.
+

@@ -13,16 +13,21 @@ import javax.sql.DataSource;
  */
 @Configuration
 public class SpringConfig {
-    private DataSource dataSource;
-    private EntityManager em;
-    public SpringConfig(DataSource dataSource, EntityManager em) {
-        this.dataSource = dataSource;
-        this.em = em;
+    // private DataSource dataSource;
+    // private EntityManager em;
+    /**
+     * 스프링 데이터 jpa가 자동으로 해당 리포지토리를 빈으로 등록을 해줘서 바로 주입
+     */
+    private final MemberRepository memberRepository;
+    public SpringConfig(DataSource dataSource, EntityManager em, MemberRepository memberRepository) {
+        // this.dataSource = dataSource;
+        // this.em = em;
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
     /**
@@ -30,12 +35,12 @@ public class SpringConfig {
      * 확장에는 열려있고, 수정, 변경에는 닫혀있다.
      * 스프링의 DI를 사용하면 기존 코드를 전혀 손대지 않고 설정만으로 구현 클래스를 변경 할 수 있다.
      */
-    @Bean
+   /* @Bean
     public MemberRepository memberRepository(){
         // return new MemoryMemberRepository();
         // return new JdbcMemberRepository(dataSource);
         // return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);  // JPA는 EntityManager 주입
-    }
+        // return new JpaMemberRepository(em);  // JPA는 EntityManager 주입
+    }*/
 
 }
