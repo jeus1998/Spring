@@ -1,0 +1,14 @@
+
+# 타임리프를 통한 랜더링이 아닌 웹 브라우저에서 해당 html 코드를 그냥 보는 방법
+1. 해당 html absolute path 복사
+2. 복사한 path 웹 브라우저 검색창에 그대로 붙여넣기
+
+# 동장 방식
+
+1. 웹 브라우저 localhost:8080/hello-mvc 요청
+2. 내장 톰켓 서버 요청을 받는다.
+3. 스프링 컨테이너는 해당 url에 맞는 컨트롤러(helloController)로 연결
+4. 컨트롤러는 viewResolver에게 model과 반환할 html(hello-template)를 전달.
+5. view Resolver 템플릿 처리 이후 내장 톰켓 서버를 통해 응답
+5. 웹 브라우저 수신
+
