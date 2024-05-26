@@ -30,7 +30,7 @@ public class MemberService {
 
         long start = System.currentTimeMillis();
 
-        try {
+       /* try { AOP 적용 전
             // 중복 회원 검증
             validateDuplicateMember(member);
 
@@ -41,7 +41,12 @@ public class MemberService {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
             System.out.println("join = " + timeMs + "ms");
-        }
+        }*/
+        // 중복 회원 검증
+        validateDuplicateMember(member);
+
+        memberRepository.save(member);
+        return member.getId();
     }
 
     /**
