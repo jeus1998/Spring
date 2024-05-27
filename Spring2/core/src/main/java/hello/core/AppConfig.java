@@ -18,7 +18,8 @@ public class AppConfig {
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     private static DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+        // return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
     private static MemberRepository memberRepository() {
         return new MemoryMemberRepository();
