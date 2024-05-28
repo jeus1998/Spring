@@ -76,4 +76,4 @@ memberRepository = hello.core.member.MemoryMemberRepository@548e76f1
 - 확인해보면 memberRepository 인스턴스는 모두 같은 인스턴스가 공유되어 사용된다.
 - AppConfig의 자바 코드를 보면 분명히 각각 3번 new MemoryMemberRepository 호출해서 다른 인스턴
   스가 생성되어야 하는데?
-- @Configuration & 바이트코드 조작의 마법을 확인하자.
+- @Configuration & 바이트코드 조작을 확인하자.
