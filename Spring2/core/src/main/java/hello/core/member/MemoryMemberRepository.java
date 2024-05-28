@@ -1,10 +1,14 @@
 package hello.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.*;
 
 /**
  * MemberRepository 구현체 -> save & findById
  */
+
+@Component
 public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>();
     @Override
