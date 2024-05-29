@@ -1,0 +1,20 @@
+
+# URI와 웹 브라우저 요청 흐름 - 웹 브라우저 요청 흐름
+
+![17-.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F17-.JPG)
+
+![18.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F18.JPG)
+
+![19.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F19.JPG)
+
+![20.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F20.JPG)
+
+![21.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F21.JPG)
+
+웹 브라우저 -> 서버(요청)
+
+![22.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F22.JPG)
+
+서버 -> 웹 브라우저 (응답)
+
+![23.JPG](%EC%9D%B4%EB%AF%B8%EC%A7%80%2F23.JPG)
