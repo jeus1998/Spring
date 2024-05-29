@@ -1,0 +1,11 @@
+터미널 환경에서 프로젝트 실행하기 (window)
+
+1. 프로젝트 폴더 위치로 이동
+2. 프로젝트 빌드 하기  -> ./gradlew build
+3. build 폴더로 이동  -> cd build
+4. libs 폴더로 이동 -> cd libs
+5. SNAPSHOT 찾기 -> ls -a         (hello-spring-0.0.1-SNAPSHOT.jar)
+6. 해당 내용 찾고 복사해서 실행 ->  java -jar hello-spring-0.0.1-SNAPSHOT.jar
+
+
+2번에서 에러가 발생하면 -> ./gradlew clean build

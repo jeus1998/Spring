@@ -1,0 +1,99 @@
+
+## AOP가 필요한 상황
+
+- 모든 메소드의 호출 시간을 측정하고 싶다면?
+- 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern)
+- 회원 가입 시간, 회원 조회 시간을 측정하고 싶다면?
+
+메서드 1000개라면 1000개에 시간 측정 로직 추가..?
+
+public Long join (Member member){
+
+        long start = System.currentTimeMillis();
+
+        try {
+            // 중복 회원 검증
+            validateDuplicateMember(member);
+
+            memberRepository.save(member);
+            return member.getId();
+        }
+        finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join = " + timeMs + "ms");
+        }
+}
+
+이런 로직을 메서드 단위로 추가 하려면 너무 많은 시간이 들고 유지보수가 어렵다...
+
+문제
+- 회원가입, 회원 조회에 시간을 측정하는 기능은 핵심 관심 사항(core-concern)이 아니다.
+- 시간을 측정하는 로직은 공통 관심 사항(cross-cutting-concern)이다.
+- 시간을 측정하는 로직과 핵심 비즈니스 로직이 섞여서 유지보수가 어렵다.
+- 시간을 측정하는 로직을 변경할 때 모든 로직을 찾아가면서 변경해야 한다.
+
+AOP 적용
+- AOP : Aspect Oriented Programming - 관점 지향 프로그래밍
+- 공통 관심 사항(cross-cutting concern) / 핵심 관심 사항(core concern) 분리
+
+                    스프링 컨테이너
+   helloController - memberService -  memberRepository
+                  \       |       /
+                    TimeTraceAop    원하는 곳에 공통 관심 사항 적용
+                    (시간 측정 로직)
+
+
+TimeTraceAop.java 참고
+- 회원가입, 회원 조회등 핵심 관심사항과 시간을 측정하는 공통 관심 사항을 분리한다.
+- 시간을 측정하는 로직을 별도의 공통 로직으로 만들었다.
+- 핵심 관심 사항을 깔끔하게 유지할 수 있다
+- 변경이 필요하면 이 로직만 변경하면 된다.
+- 원하는 적용 대상을 선택할 수 있다
+
+
+스프링의 AOP 동작 방식 설명
+
+AOP 적용 전 의존관계
+
+     helloController -> memberService
+
+
+AOP 적용 후 의존관계                                   AOP 동작
+                                             joinPoint.proceed()
+    helloController -> 프록시 memberService  ------------------------> 실제 memberService
+
+
+AOP 적용 전 전체 그림
+
+controller -> service -> repository
+
+AOP 적용 후 전체 그림
+
+프록시 컨트롤러 -> 컨트롤러 -> 프록시 서비스 -> 서비스 -> 프록시 리포지토리 -> 리포지토리
+
+TimeTraceAop.class 수동 빈 등록하면 발생하는 일 ERROR
+순환 참조 오류 ->
+Relying upon circular references is discouraged and they are prohibited by default.
+Update your application to remove the dependency cycle between beans.
+As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+WHY?
+인프런 링크 : https://www.inflearn.com/questions/48156/aop-timetraceaop-%EB%A5%BC-component-%EB%A1%9C-%EC%84%A0%EC%96%B8-vs-springconfig%EC%97%90-bean%EC%9C%BC%EB%A1%9C-%EB%93%B1%EB%A1%9D
+
+TimeTraceAop의 AOP 대상을 지정하는 @Around 코드를 보시면, SpringConfig의 timeTraceAop() 메서드도 AOP로 처리하게 됩니다.
+그런데 이게 바로 자기 자신인 TimeTraceAop를 생성하는 코드인 것이지요. 그래서 순환참조 문제가 발생합니다.
+
+반면에 컴포넌트 스캔을 사용할 때는 AOP의 대상이 되는 이런 코드 자체가 없기 때문에 문제가 발생하지 않았습니다.
+그러면 AOP 설정 클래스를 빈으로 직접 등록할 때는 어떻게 문제를 해결하면 될까요? 바로 다음과 같이 AOP 대상에서 SpringConfig를 빼주면 됩니다.
+
+@Aspect
+public class TimeTraceAop {
+
+    @Around("execution(* hello.hellospring..*(..)) && !target(hello.hellospring.SpringConfig)")
+
+    //@Around("execution(* hello.hellospring..*(..))")
+
+    public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {...}
+
+}
