@@ -1,6 +1,0 @@
-
-1. 웹 브라우저 localhost:8080/hello-static.html 요청
-2. 내장 톰켓 서버로 진입
-3. 스프링 컨테이너는 hello-static 관련 컨트롤러를 찾는다.
-4. 해당 컨트롤러가 없다. -> static 경로에서 찾음 resources: static/hello-static.html
-5. 해당 내용 웹 브라우저에 응답
