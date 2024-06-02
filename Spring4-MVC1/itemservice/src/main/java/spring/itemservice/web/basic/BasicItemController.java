@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.itemservice.domain.item.Item;
 import spring.itemservice.domain.item.ItemRepository;
 
@@ -92,18 +93,34 @@ public class BasicItemController {
         return "redirect:/basic/items/{itemId}";
     }
 
-    @PostMapping("/add")
+    /**
+     * PRG V1
+     * POST -> Redirect -> GET
+     */
+    // @PostMapping("/add")
     public String addItemPRG(Item item){
         itemRepository.save(item);
 
         return "redirect:/basic/items/" + item.getId();
     }
 
+    /**
+     * PRG V2
+     * RedirectAttributes
+     */
+    @PostMapping("/add")
+    public String addItemPRG2(Item item, RedirectAttributes redirectAttributes){
+        Item savedItem = itemRepository.save(item);
+
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+
+        return "redirect:/basic/items/{itemId}";
+    }
 
     @PostConstruct
     public void init(){
         itemRepository.save(new Item("itemA", 10000, 10));
         itemRepository.save(new Item("itemB", 20000, 20));
     }
-
 }
