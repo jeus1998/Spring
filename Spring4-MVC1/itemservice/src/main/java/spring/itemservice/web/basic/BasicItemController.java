@@ -71,7 +71,7 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    @PostMapping("/add")
+    // @PostMapping("/add")
     public String addItemV4(Item item){
         itemRepository.save(item);
 
@@ -90,6 +90,13 @@ public class BasicItemController {
         itemRepository.update(itemId, item);
 
         return "redirect:/basic/items/{itemId}";
+    }
+
+    @PostMapping("/add")
+    public String addItemPRG(Item item){
+        itemRepository.save(item);
+
+        return "redirect:/basic/items/" + item.getId();
     }
 
 
