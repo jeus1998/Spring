@@ -25,11 +25,11 @@ public class MappingAPIController {
     public String user(@PathVariable int userId){
         return "회원 조회";
     }
-    @PatchMapping("/{userId")
+    @PatchMapping("/{userId}")
     public String userUpdate(@PathVariable int userId){
         return "회원 수정";
     }
-    @DeleteMapping("/{userId")
+    @DeleteMapping("/{userId}")
     public String userDelete(@PathVariable int userId){
         return "회원 삭제";
     }
