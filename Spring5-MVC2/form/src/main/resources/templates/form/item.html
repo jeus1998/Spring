@@ -67,6 +67,17 @@
         </div>
     </div>
 
+    <!-- select box -->
+    <div>
+        <div>상품 배송</div>
+        <select th:field="${item.deliveryCode}" class="form-select" disabled>
+            <option value="" th:text="'==배송 방식 선택=='"></option>
+            <option th:each="deliveryCode: ${deliveryCodes}"
+                    th:value="${deliveryCode.code}"
+                    th:text="${deliveryCode.displayName}">
+            </option>
+        </select>
+    </div>
 
     <div class="row">
         <div class="col">
