@@ -1,7 +1,6 @@
 # 스프링 공부 기록 💪
 
 ## 인프런 스프링 완전 정복 👊
-https://github.com/jeus1998/Spring/tree/main/Spring1/hello-spring/src
 
 ### 스프링 입문 
 [https://github.com/jeus1998/Spring/tree/main/Spring1/hello-spring/src](https://github.com/jeus1998/Spring/tree/main/Spring1/hello-spring/src)
