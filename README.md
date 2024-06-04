@@ -3,7 +3,7 @@
 ## 스프링프레임워크 관련 정리
 https://github.com/jeus1998/Spring/tree/main/Spring
 
-## 인프런 스프링 완전 정복 👊
+## 인프런 스프링 완전 정복 
 
 ### 스프링 입문 
 [https://github.com/jeus1998/Spring/tree/main/Spring1/hello-spring/src](https://github.com/jeus1998/Spring/tree/main/Spring1/hello-spring/src)
