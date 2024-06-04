@@ -1,3 +1,35 @@
+
+# Bean Validation - 수정에 적용
+
+상품 수정에도 빈 검증(Bean Validation)을 적용해보자
+
+### ValidationItemControllerV3 - edit() 변경
+
+```java
+@PostMapping("/{itemId}/edit")
+public String edit(@PathVariable Long itemId, @Validated @ModelAttribute Item item, BindingResult bindingResult) {
+
+    if(item.getPrice() != null && item.getQuantity() != null){
+        int resultPrice = item.getPrice() * item.getQuantity();
+        if(resultPrice < 10000){
+            bindingResult.reject("totalPriceMin", new Object[]{10000, resultPrice}, null);
+        }
+    }
+
+    // 검증에 실패하면 다시 입력 폼으로
+    if(bindingResult.hasErrors()){
+        log.info("errors = {}", bindingResult);
+        return "validation/v3/editForm";
+    }
+    
+    itemRepository.update(itemId, item);
+    return "redirect:/validation/v3/items/{itemId}";
+}
+```
+
+### validation/v3/editForm.html 변경
+
+```html
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -69,3 +101,4 @@
 </div> <!-- /container -->
 </body>
 </html>
+```
