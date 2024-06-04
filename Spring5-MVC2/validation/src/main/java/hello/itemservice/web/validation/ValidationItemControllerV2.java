@@ -132,7 +132,7 @@ public class ValidationItemControllerV2 {
     /**
      * 목표: errors.properties 활용 에러 메시지 규격화
      */
-    @PostMapping("/add")
+    // @PostMapping("/add")
     public String addItemV3(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         // 검증 로직: Binding 성공한 값들 = 비즈니스에서 검증 -> bindingFailure(false)
@@ -167,6 +167,48 @@ public class ValidationItemControllerV2 {
         redirectAttributes.addAttribute("status", true);
         return "redirect:/validation/v2/items/{itemId}";
     }
+
+    /**
+     * 목표: BindingResult 제공 rejectValue(), reject() 활용해서 코드 단순화 하기
+     * rejectValue() -> new FiledError() / reject() -> new ObjectError()
+     * rejectValue(fieldName, errorCode(errors.properties 첫 글자, Object[] args, default message)
+     * reject(errorCode, Object[] args, default message)
+     * errors.properties message 코드를 직접 입력 하지 않아도 동작 -> messageResolver
+     */
+    @PostMapping("/add")
+    public String addItemV4(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+
+        if(!StringUtils.hasText(item.getItemName())){
+            bindingResult.rejectValue("itemName", "required");
+        }
+        if(item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000){
+            bindingResult.rejectValue("price", "range", new Object[]{1000, 1000000}, null);
+        }
+        if(item.getQuantity() == null || item.getQuantity() >= 9999){
+            bindingResult.rejectValue("quantity", "max", new Object[]{9999}, null);
+        }
+
+        // 특정 필드가 아닌 복합 룰 검증
+        if(item.getPrice() != null && item.getQuantity() != null){
+            int resultPrice = item.getPrice() * item.getQuantity();
+            if(resultPrice < 10000){
+                bindingResult.reject("totalPriceMin", new Object[]{10000, resultPrice}, null);
+            }
+        }
+
+        // 검증에 실패하면 다시 입력 폼으로
+        if(bindingResult.hasErrors()){
+            log.info("errors = {}", bindingResult);
+            return "validation/v2/addForm";
+        }
+
+        // 성공 로직
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/validation/v2/items/{itemId}";
+    }
+
 
 
     @GetMapping("/{itemId}/edit")
