@@ -23,6 +23,7 @@ import java.util.*;
 public class ValidationItemControllerV2 {
 
     private final ItemRepository itemRepository;
+    private final ItemValidator itemValidator;
 
     @GetMapping
     public String items(Model model) {
@@ -176,7 +177,7 @@ public class ValidationItemControllerV2 {
      * reject(errorCode, Object[] args, default message)
      * errors.properties message 코드를 직접 입력 하지 않아도 동작 -> messageResolver
      */
-    @PostMapping("/add")
+    // @PostMapping("/add")
     public String addItemV4(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         /*
@@ -215,7 +216,26 @@ public class ValidationItemControllerV2 {
         return "redirect:/validation/v2/items/{itemId}";
     }
 
+    /**
+     * Validator 인터페이스를 구현한 ItemValidator 활용하기
+     */
+    @PostMapping("/add")
+    public String addItemV5(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
+        itemValidator.validate(item, bindingResult);
+
+        // 검증에 실패하면 다시 입력 폼으로
+        if(bindingResult.hasErrors()){
+            log.info("errors = {}", bindingResult);
+            return "validation/v2/addForm";
+        }
+
+        // 성공 로직
+        Item savedItem = itemRepository.save(item);
+        redirectAttributes.addAttribute("itemId", savedItem.getId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/validation/v2/items/{itemId}";
+    }
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model) {
