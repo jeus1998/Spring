@@ -2,6 +2,7 @@ package hello.login.web;
 
 import hello.login.domain.member.Member;
 import hello.login.domain.member.MemberRepository;
+import hello.login.web.argumentresolver.Login;
 import hello.login.web.session.SessionManger;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -71,7 +72,7 @@ public class HomeController {
      * @SessionAttribute 적용해서 세션 편리하게 사용하기
      * 세션을 생성하지는 않는다.
      */
-    @GetMapping("/")
+    // @GetMapping("/")
     public String homeLoginV4(
             @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
         if(loginMember == null){
@@ -81,5 +82,17 @@ public class HomeController {
           return "loginHome";
     }
 
+    /**
+     * ArgumentResolver 활용
+     */
+    @GetMapping("/")
+    public String homeLoginArgumentResolver(@Login Member loginMember, Model model) {
+
+        if(loginMember == null){
+             return "home";
+        }
+        model.addAttribute("member", loginMember);
+          return "loginHome";
+    }
 
 }
