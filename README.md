@@ -67,4 +67,4 @@
 - [MVC2-7(login2)](https://github.com/jeus1998/Spring/tree/main/Spring5-MVC2/login/src/%EC%84%B9%EC%85%98%207%20%EB%A1%9C%EA%B7%B8%EC%9D%B8%20%EC%B2%98%EB%A6%AC2(%ED%95%84%ED%84%B0%2C%20%EC%9D%B8%ED%84%B0%EC%85%89%ED%84%B0))
   - section7: login - (필터, 인터셉터, ArgumentResolver 활용)
 - [MVC2-8(exception)](https://github.com/jeus1998/Spring/tree/main/Spring5-MVC2/exception/src/%EC%84%B9%EC%85%988%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC%EC%99%80%20%EC%98%A4%EB%A5%98%20%ED%8E%98%EC%9D%B4%EC%A7%80)
-  - section8: login - (서블릿 예외 처리(필터, 인터셉터), 스프링 부트 오류 페이지)
+  - section8: 서블릿 예외 처리(필터, 인터셉터), 스프링 부트 오류 페이지
