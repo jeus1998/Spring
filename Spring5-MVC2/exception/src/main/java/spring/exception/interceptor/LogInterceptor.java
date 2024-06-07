@@ -1,11 +1,14 @@
 package spring.exception.interceptor;
 
+import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 @Slf4j
@@ -32,6 +35,8 @@ public class LogInterceptor implements HandlerInterceptor {
         String logId = (String)request.getAttribute(LOG_ID);
         log.info("RESPONSE [{}][{}][{}]", logId, request.getDispatcherType(), requestURI);
 
-        if (ex != null) log.error("afterCompletion error!!", ex);
+        if (ex != null){
+            log.error("afterCompletion error!!", ex);
+        }
     }
 }
