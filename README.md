@@ -70,3 +70,5 @@
   - section8: 서블릿 예외 처리(필터, 인터셉터), 스프링 부트 오류 페이지
 - [MVC2-9(API exception)](https://github.com/jeus1998/Spring/tree/main/Spring5-MVC2/exception/src/%EC%84%B9%EC%85%989%20API%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC)
   - section9: API 예외 처리(@ExceptionHandler, @ControllerAdvice), Exception Resolver
+- [MVC2-10(TypeConverter)](https://github.com/jeus1998/Spring/tree/main/Spring5-MVC2/typeconverter/src/%EC%84%B9%EC%85%98%2010%20%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%83%80%EC%9E%85%20%EC%BB%A8%EB%B2%84%ED%84%B0)
+  - section10: 스프링 타입 컨버터 - (converter, conversionService, formatter, 스프링 제공 포멧터)
