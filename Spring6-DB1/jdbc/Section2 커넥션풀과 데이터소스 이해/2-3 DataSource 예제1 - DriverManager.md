@@ -39,12 +39,14 @@ class ConnectionTest {
         DataSource datasource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
         useDataSource(datasource);
     }
+    
     private void useDataSource(DataSource dataSource) throws SQLException{
-        Connection con1 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        Connection con2 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        Connection con1 = dataSource.getConnection();
+        Connection con2 = dataSource.getConnection();
         log.info("connection={}, class={}", con1, con1.getClass());
         log.info("connection={}, class={}", con2, con2.getClass());
     }
+    
 }
 ```
 
