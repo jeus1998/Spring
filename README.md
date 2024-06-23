@@ -78,6 +78,8 @@
 ### 스프링 - DB1
 - [DB1-1(JDBC)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section1%20JDBC%20%EC%9D%B4%ED%95%B4)
 - [DB1-2(커넥션풀 & 데이터소스)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section2%20%EC%BB%A4%EB%84%A5%EC%85%98%ED%92%80%EA%B3%BC%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%86%8C%EC%8A%A4%20%EC%9D%B4%ED%95%B4)
-- [DB1-3(트랜잭션)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section3%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%20%EC%9D%B4%ED%95%B4)
+- [DB1-3(트랜잭션 개념)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section3%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%20%EC%9D%B4%ED%95%B4)
+- [DB1-4(트랜잭션 적용)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section4%20%EC%8A%A4%ED%94%84%EB%A7%81%EA%B3%BC%20%EB%AC%B8%EC%A0%9C%20%ED%95%B4%EA%B2%B0%20-%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98)
+  - DataSource, PlatformTransactionManager(트랜잭션 추상화), 트랜잭션 동기화 매니저, @Transactional, 스프링 트랜잭션 AOP
 
 
