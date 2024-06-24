@@ -86,3 +86,6 @@
 - [DB1-6(Exception, 반복 제거)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section6%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC%2C%20%EB%B0%98%EB%B3%B5)
   - JdbcTemplate, 스프링 예외 추상화, custom 예외 
 
+### 스프링 - DB2
+- [DB2-1(데이터 접근 기술 - 시작)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section1%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20%EC%8B%9C%EC%9E%91)
+  - 가변 인자(Varargs), @Import, @EventListener, @Profile & spring.profiles.active=local, DB 기본키(PrimaryKey) 
