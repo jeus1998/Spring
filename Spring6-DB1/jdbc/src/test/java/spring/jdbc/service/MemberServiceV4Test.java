@@ -14,6 +14,7 @@ import spring.jdbc.domain.Member;
 import spring.jdbc.repository.MemberRepository;
 import spring.jdbc.repository.MemberRepositoryV4_1;
 import spring.jdbc.repository.MemberRepositoryV4_2;
+import spring.jdbc.repository.MemberRepositoryV5;
 
 import javax.sql.DataSource;
 
@@ -43,8 +44,9 @@ class MemberServiceV4Test {
         private final DataSource dataSource;
         @Bean
         MemberRepository memberRepository(){
-            // return new MemberRepositoryV4_1(dataSource);
-            return new MemberRepositoryV4_2(dataSource);
+             //return new MemberRepositoryV4_1(dataSource); // 단순 예외 변환
+             //return new MemberRepositoryV4_2(dataSource); // 스프링 예외 변환
+             return new MemberRepositoryV5(dataSource); //JdbcTemplate
         }
         @Bean
         MemberServiceV4 memberServiceV4(){
@@ -86,7 +88,7 @@ class MemberServiceV4Test {
     }
 
     @Test
-    @DisplayName("이체중 예외빌생")
+    @DisplayName("이체중 예외발생")
     void accountTransferEx(){
         // given
         Member memberA = new Member(MEMBER_A, 10000);
