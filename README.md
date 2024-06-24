@@ -83,5 +83,6 @@
   - DataSource, PlatformTransactionManager(트랜잭션 추상화), 트랜잭션 동기화 매니저, @Transactional, 스프링 트랜잭션 AOP
 - [DB1-5(Exception)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section5%20%EC%9E%90%EB%B0%94%20%EC%98%88%EC%99%B8%20%EC%9D%B4%ED%95%B4)
   - 예외계층, Checked Exception, UncheckedException, 활용 방법, 예외 포함 & 스택 트레이스
-
+- [DB1-6(Exception, 반복 제거)](https://github.com/jeus1998/Spring/tree/main/Spring6-DB1/jdbc/Section6%20%EC%98%88%EC%99%B8%20%EC%B2%98%EB%A6%AC%2C%20%EB%B0%98%EB%B3%B5)
+  - JdbcTemplate, 스프링 예외 추상화, custom 예외 
 
