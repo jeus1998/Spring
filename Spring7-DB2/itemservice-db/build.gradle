@@ -30,6 +30,9 @@ dependencies {
 	//H2 데이터베이스 추가
 	runtimeOnly 'com.h2database:h2'
 
+	// MyBatis 스프링 부트 3.0 추가
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
