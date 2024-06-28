@@ -28,11 +28,13 @@ public class ItemServiceApplication {
 		SpringApplication.run(ItemServiceApplication.class, args);
 	}
 
+
 	@Bean
 	@Profile("local")
 	public TestDataInit testDataInit(ItemRepository itemRepository) {
 		return new TestDataInit(itemRepository);
 	}
+
 
 	/*
 	@Bean
