@@ -55,10 +55,8 @@ public class JpaItemRepository implements ItemRepository {
         }
 
         boolean andFlag = false;
-        // List<Object> param = new ArrayList<>();
         if(StringUtils.hasText(itemName)){
             jpql += " i.itemName like concat('%',:itemName,'%')";
-            // param.add(itemName);
             andFlag = true;
         }
 
@@ -67,7 +65,6 @@ public class JpaItemRepository implements ItemRepository {
                 jpql += " and";
             }
             jpql += " i.price <= :maxPrice";
-            // param.add(maxPrice);
         }
 
         log.info("jpql={}", jpql);
