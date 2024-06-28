@@ -12,13 +12,13 @@ import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 @Slf4j
-@Repository
-@Transactional
+// @Repository
+// @Transactional
 @RequiredArgsConstructor
 public class JpaItemRepository implements ItemRepository {
 
