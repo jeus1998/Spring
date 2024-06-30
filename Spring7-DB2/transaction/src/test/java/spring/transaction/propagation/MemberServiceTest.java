@@ -49,4 +49,22 @@ class MemberServiceTest {
         assertThat(memberRepository.find(username).isPresent()).isTrue();
         assertThat(logRepository.find(username).isPresent()).isFalse();
     }
+
+    /**
+     *  memberService     @Transactional: ON
+     *  memberRepository  @Transactional: OFF
+     *  logRepository     @Transactional: OFF
+     */
+    @Test
+    void singleTx(){
+        // given
+        String username = "outerTxOff_success";
+
+        // when
+        memberService.joinV1(username);
+
+        // then : 모든 데이터 정상 저장
+        assertThat(memberRepository.find(username).isPresent()).isTrue();
+        assertThat(logRepository.find(username).isPresent()).isTrue();
+    }
 }
