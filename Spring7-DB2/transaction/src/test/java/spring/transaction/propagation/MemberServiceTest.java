@@ -31,4 +31,22 @@ class MemberServiceTest {
     }
 
 
+    /**
+     *  memberService     @Transactional: OFF
+     *  memberRepository  @Transactional: ON
+     *  logRepository     @Transactional: ON Exception
+     */
+    @Test
+    void outerTxOff_fail(){
+        // given
+        String username = "로그예외_outerTxOff_success";
+
+        // when
+        assertThatThrownBy(()->memberService.joinV1(username))
+                .isInstanceOf(RuntimeException.class);
+
+        // then : 멤버 데이터: 커밋 로그 데이터: 롤백
+        assertThat(memberRepository.find(username).isPresent()).isTrue();
+        assertThat(logRepository.find(username).isPresent()).isFalse();
+    }
 }
