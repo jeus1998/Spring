@@ -89,3 +89,24 @@
 ### 스프링 - DB2
 - [DB2-1(데이터 접근 기술 - 시작)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section1%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20%EC%8B%9C%EC%9E%91)
   - 가변 인자(Varargs), @Import, @EventListener, @Profile & spring.profiles.active=local, DB 기본키(PrimaryKey) 
+- [DB2-2(JdbcTemplate)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section2%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20%EC%8A%A4%ED%94%84%EB%A7%81%20JdbcTemplate)
+  - JdbcTemplate, NamedParameterJdbcTemplate, SimpleJdbcInsert, RowMapper, BeanPropertyRowMapper, SqlParameterSource
+- [DB2-3(테스트)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section3%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20%ED%85%8C%EC%8A%A4%ED%8A%B8)
+  - 테스트용 데이터베이스 분리, 임베디드 모드 데이터베이스, 스프링 부트 & 임베디드 모드 
+- [DB2-4(MyBatis)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section4%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20MyBatis)
+  - MyBatis 설정, MyBatis 동적쿼리, 기타 기능 
+- [DB2-5(JPA)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section5%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20JPA)
+  - JPA 예외변환(PersistenceException) & @Repository, EntityManager, JPQL, 동적쿼리 
+- [DB2-6(Spring Data JPA)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section6%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20JPA)
+  - 쿼리 메서드(메서드 이름) vs 직접 JPQL, 기능, 스프링 데이터 JPA 프록시 
+- [DB2-7(Querydsl)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section7%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20Querydsl)
+  - 설정(Q타입 생성 방법), 적용(JPAQueryFactory)
+- [DB2-8(활용)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/itemservice-db/Section8%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%A0%91%EA%B7%BC%20%EA%B8%B0%EC%88%A0%20-%20%ED%99%9C%EC%9A%A9%20%EB%B0%A9%EC%95%88)
+- [DB2-9(스프링 트랜잭션 이해)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/transaction/Section9%20%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%20%EC%9D%B4%ED%95%B4)
+  - @Transactional 우선순위, 트랜잭션 AOP & 주의 사항, 트랜잭션 옵션
+- [DB2-10(스프링 트랜잭션 전파)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/transaction/Section10%20%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%20%EC%A0%84%ED%8C%8C1%20-%20%EA%B8%B0%EB%B3%B8)
+  - 다양한 전파 옵션, 물리 트랜잭션 VS 논리 트랜잭션
+- [DB2-11(스프링 트랜잭션 전파 활용)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/transaction/Section11%20%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%20%EC%A0%84%ED%8C%8C2%20-%20%ED%99%9C%EC%9A%A9)
+
+### 스프링 핵심 원리 - 고급편
+
