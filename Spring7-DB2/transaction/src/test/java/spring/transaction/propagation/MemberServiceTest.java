@@ -39,7 +39,7 @@ class MemberServiceTest {
     @Test
     void outerTxOff_fail(){
         // given
-        String username = "로그예외_outerTxOff_success";
+        String username = "로그예외_outerTxOff_fail";
 
         // when
         assertThatThrownBy(()->memberService.joinV1(username))
@@ -58,7 +58,25 @@ class MemberServiceTest {
     @Test
     void singleTx(){
         // given
-        String username = "outerTxOff_success";
+        String username = "singleTx";
+
+        // when
+        memberService.joinV1(username);
+
+        // then : 모든 데이터 정상 저장
+        assertThat(memberRepository.find(username).isPresent()).isTrue();
+        assertThat(logRepository.find(username).isPresent()).isTrue();
+    }
+
+    /**
+     *  memberService     @Transactional: ON
+     *  memberRepository  @Transactional: ON
+     *  logRepository     @Transactional: ON
+     */
+    @Test
+    void outerTxOn_success(){
+        // given
+        String username = "outerTxOn_success";
 
         // when
         memberService.joinV1(username);
