@@ -109,4 +109,9 @@
 - [DB2-11(스프링 트랜잭션 전파 활용)](https://github.com/jeus1998/Spring/tree/main/Spring7-DB2/transaction/Section11%20%EC%8A%A4%ED%94%84%EB%A7%81%20%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98%20%EC%A0%84%ED%8C%8C2%20-%20%ED%99%9C%EC%9A%A9)
 
 ### 스프링 핵심 원리 - 고급편
-
+- [예제 만들기](https://github.com/jeus1998/Spring/tree/main/Spring8-Advanced/advanced/Section1%20%EC%98%88%EC%A0%9C%20%EB%A7%8C%EB%93%A4%EA%B8%B0)
+  - 로그 만들기 예제
+- [스레드 로컬](https://github.com/jeus1998/Spring/tree/main/Spring8-Advanced/advanced/Section2%20%EC%93%B0%EB%A0%88%EB%93%9C%20%EB%A1%9C%EC%BB%AC%20-%20ThreadLocal)
+  - 동시성 문제, ThreadLocal
+- [템플릿 메서드 패턴, 콜백 패턴](https://github.com/jeus1998/Spring/tree/main/Spring8-Advanced/advanced/Section3%20%ED%85%9C%ED%94%8C%EB%A6%BF%20%EB%A9%94%EC%84%9C%EB%93%9C%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%BD%9C%EB%B0%B1%20%ED%8C%A8%ED%84%B4)
+  - 템플릿 메서드 패턴(추상 클래스 상속 구조), 전략 패턴(Context, Strategy, 클래스-인터페이스 구조), 템플릿 콜백 패턴(매개변수에 전략) 
