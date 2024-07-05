@@ -10,13 +10,15 @@ import spring.aop.order.OrderRepository;
 import spring.aop.order.OrderService;
 import spring.aop.order.aop.AspectV1;
 import spring.aop.order.aop.AspectV2;
+import spring.aop.order.aop.AspectV3;
 
 import static org.assertj.core.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest
 // @Import(AspectV1.class)  // 스프링 빈으로 등록
-@Import(AspectV2.class)
+// @Import(AspectV2.class)
+@Import(AspectV3.class)
 public class AopTest {
     @Autowired
     OrderService orderService;
