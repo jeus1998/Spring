@@ -1,6 +1,7 @@
 package spring.aop.exam;
 
 import org.springframework.stereotype.Repository;
+import spring.aop.exam.annotation.Retry;
 import spring.aop.exam.annotation.Trace;
 
 @Repository
@@ -10,6 +11,7 @@ public class ExamRepository {
      * 5번에 1번 실패하는 요청
      */
     @Trace
+    @Retry(4) // 재시도 횟수
     public String save(String itemId){
         seq++;
         if(seq % 5 == 0){
