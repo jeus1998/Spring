@@ -8,8 +8,11 @@ import org.apache.catalina.startup.Tomcat;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import java.io.IOException;
+import java.nio.file.Files;
+
 public class EmbedTomcatSpringMain {
-    public static void main(String[] args) throws LifecycleException {
+    public static void main(String[] args) throws LifecycleException, IOException {
         // 내장 톰캣 생성, 설정
         Tomcat tomcat = new Tomcat();
         Connector connector = new Connector();
@@ -24,8 +27,11 @@ public class EmbedTomcatSpringMain {
 
         // 스프링 MVC 디스패처 서블릿 생성, 스프링 컨테이너 연결
         DispatcherServlet dispatcherServlet = new DispatcherServlet(appContext);
+
+        String docBase = Files.createTempDirectory("tomcat-basedir").toString();
+
         // 디스패처 서블릿 등록 시작
-        Context context = tomcat.addContext("", "/");
+        Context context = tomcat.addContext("", docBase);
         // 서블릿 추가
         tomcat.addServlet("", "dispatcher", dispatcherServlet);
         // 서블릿 경로 지정
