@@ -45,7 +45,7 @@ dependencies {
 
     */
 
-    //2. 스프링 부트 라이브러리 버전 관리
+   /* //2. 스프링 부트 라이브러리 버전 관리
 
     //스프링 웹, MVC
     implementation 'org.springframework:spring-webmvc'
@@ -66,12 +66,11 @@ dependencies {
     implementation 'org.slf4j:jul-to-slf4j'
 
     //YML 관련
-    implementation 'org.yaml:snakeyaml'
+    implementation 'org.yaml:snakeyaml'*/
 
-/*
     //3. 스프링 부트 스타터
     implementation 'org.springframework.boot:spring-boot-starter-web'
-*/
+
 }
 
 tasks.named('test') {
