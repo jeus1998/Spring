@@ -14,7 +14,7 @@ public class EnvironmentCheck {
     @PostConstruct
     public void init(){
         String url = env.getProperty("url");
-        String username = env.getProperty("username");
+        String username = env.getProperty("user_name"); // 윈도우 os 환경변수와 겹친다.
         String password = env.getProperty("password");
         log.info("env url={}", url);
         log.info("env username={}", username);
