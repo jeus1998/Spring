@@ -7,6 +7,9 @@ management:
       enabled: true
     env:
       enabled: true
+  # 액츄에이터 보안을 위해 엔드 포인트 포트 변경 9292
+  server:
+    port: 8080
   # 활성화
   endpoint:
     shutdown:
