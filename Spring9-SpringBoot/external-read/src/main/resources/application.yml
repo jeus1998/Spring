@@ -34,6 +34,6 @@ my:
     username: prod_user
     password: prod_pw
     etc:
-      max-connection: 1
+      max-connection: 10000
       timeout: 3500ms
       options: CACHE, PROD
