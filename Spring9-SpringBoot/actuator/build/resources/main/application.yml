@@ -25,6 +25,7 @@ info:
     name: hello-actuator
     company: jeu
 
+# default: info
 logging:
   level:
     hello.controller: debug
