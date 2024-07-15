@@ -24,3 +24,8 @@ info:
   app:
     name: hello-actuator
     company: jeu
+
+logging:
+  level:
+    hello.controller: debug
+
