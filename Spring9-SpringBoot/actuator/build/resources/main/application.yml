@@ -33,7 +33,7 @@ logging:
   level:
     hello.controller: debug
 
-# tomcat metrics 활성화 
+# tomcat metrics 활성화
 server:
   tomcat:
     mbeanregistry:
