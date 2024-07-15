@@ -1,4 +1,12 @@
 management:
+  # info: management 바로 아래서 시작
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
   # 활성화
   endpoint:
     shutdown:
@@ -11,3 +19,8 @@ management:
     web:
       exposure:
         include: "*"
+
+info:
+  app:
+    name: hello-actuator
+    company: jeu
