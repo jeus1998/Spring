@@ -2,8 +2,6 @@ package hello.order.v4;
 
 import hello.order.OrderService;
 import io.micrometer.core.annotation.Timed;
-import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.core.instrument.Timer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,6 +32,7 @@ public class OrderServiceV4 implements OrderService {
     }
     private static void sleep(int l){
        try {
+           log.info("sleep");
            Thread.sleep(l + new Random().nextInt(200));
        }
        catch (InterruptedException e){
