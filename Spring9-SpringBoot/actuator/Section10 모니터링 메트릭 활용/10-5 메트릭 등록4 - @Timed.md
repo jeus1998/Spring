@@ -51,7 +51,7 @@ public class OrderServiceV4 implements OrderService {
 public class OrderConfigV4 {
     @Bean
     OrderService orderService(){
-        return new OrderServiceV2();
+        return new OrderServiceV4();
     }
 
     /**
