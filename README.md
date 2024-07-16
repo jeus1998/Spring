@@ -134,4 +134,27 @@
   - 내부 호출, 의존관계 주입, CGLIB, JDK 동적 프록시 
 
 ### 스프링 부트 - 핵심 원리와 활용
-
+- [section2 웹 서버와 서블릿 컨테이너](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/server/Section2%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%EC%99%80%20%EC%84%9C%EB%B8%94%EB%A6%BF%20%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
+  - WAR 빌드 배포, 서블릿 컨테이너 초기화
+- section3 스프링 부트와 내장 톰캣
+  - [section3-1 스프링 부트와 내장 톰캣](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/embed/Section3%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B6%80%ED%8A%B8%EC%99%80%20%EB%82%B4%EC%9E%A5%20%ED%86%B0%EC%BA%A3)
+  - [section3-2 스프링 부트와 내장 톰캣](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/boot/Section3%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B6%80%ED%8A%B8%EC%99%80%20%EB%82%B4%EC%9E%A5%20%ED%86%B0%EC%BA%A3) 
+  - 내장 톰캣, 스프링 부트와 웹 서버, 실행 가능 Jar
+- [section4 스프링 부트 스타터와 라이브러리 관리](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/lib/Section4%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B6%80%ED%8A%B8%20%EC%8A%A4%ED%83%80%ED%84%B0%EC%99%80%20%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%20%EA%B4%80%EB%A6%AC)
+- section5 자동 구성(Auto Configuration)
+  - [section5](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/autoconfig/Section5%20%20%EC%9E%90%EB%8F%99%20%EA%B5%AC%EC%84%B1(Auto%20Configuration))
+  - [section5-라이브러리-v1](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/memory-v1/Section5%20%EC%9E%90%EB%8F%99%20%EA%B5%AC%EC%84%B1(Auto%20Configuration))
+  - [section5-project-v1](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/project-v1/Section5%20%EC%9E%90%EB%8F%99%20%EA%B5%AC%EC%84%B1(Auto%20Configuration))
+  - [section5-라이브러리-v2](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/memory-v2/Section5%20%EC%9E%90%EB%8F%99%20%EA%B5%AC%EC%84%B1(Auto%20Configuration))
+  - [section5-project-v2](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/project-v2/Section5%20%EC%9E%90%EB%8F%99%20%EA%B5%AC%EC%84%B1(Auto%20Configuration))
+  - 라이브러리, 자동 구성 라이브러리, @Conditional, ImportSelector
+- [section6 외부설정과 프로필1](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/external/Section6%20%EC%99%B8%EB%B6%80%EC%84%A4%EC%A0%95%EA%B3%BC%20%ED%94%84%EB%A1%9C%ED%95%841)
+  - OS 환경 변수, 자바 시스템 속성, 커맨드 라인 인수(옵션), 외부 파일, 내부 파일, 설정 데이터
+- [section7 외부설정과 프로필2](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/external-read/7.%20%EC%99%B8%EB%B6%80%EC%84%A4%EC%A0%95%EA%B3%BC%20%ED%94%84%EB%A1%9C%ED%95%842)
+  - Environment, @Value, @Configuration, YAML, @Profile
+- [section8 액츄에이터](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/actuator/Section8%20%EC%95%A1%EC%B8%84%EC%97%90%EC%9D%B4%ED%84%B0)
+  - 프로덕션 준비 기능, 액츄에이터, 엔드포인트
+- [section9 마이크로미터, 프로메테우스, 그라파나](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/actuator/Section9%20%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%AF%B8%ED%84%B0%2C%20%ED%94%84%EB%A1%9C%EB%A9%94%ED%85%8C%EC%9A%B0%EC%8A%A4%2C%20%EA%B7%B8%EB%9D%BC%ED%8C%8C%EB%82%98)
+  - 마이크로미터, 프로메테우스, 그라파나 (설정, 사용법)
+- [section10 모니터링 메트릭 활용](https://github.com/jeus1998/Spring/tree/main/Spring9-SpringBoot/actuator/Section10%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81%20%EB%A9%94%ED%8A%B8%EB%A6%AD%20%ED%99%9C%EC%9A%A9)
+  - @Counted(카운터), @Timed(타이머), 게이지, 실무 모니터링 환경 구성 
