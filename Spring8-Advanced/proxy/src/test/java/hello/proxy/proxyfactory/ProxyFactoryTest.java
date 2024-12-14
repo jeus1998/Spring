@@ -19,20 +19,13 @@ public class ProxyFactoryTest {
     @DisplayName("인터페이스가 있으면 JDK 동적 프록시를 사용")
     void interfaceProxy(){
         ServiceInterface target = new ServiceImpl();
-
-        ProxyFactory proxyFactory = new ProxyFactory(target); // target 추가 실제 객체
-
-        proxyFactory.addAdvice(new TimeAdvice());             // advice(부가 기능 로직) 추가 advice가 target 호출
-
-        ServiceInterface proxy = (ServiceInterface)proxyFactory.getProxy();
-
+        ProxyFactory proxyFactory = new ProxyFactory(target);
+        proxyFactory.addAdvice(new TimeAdvice());
+        ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
         log.info("targetClass={}", target.getClass());
         log.info("proxyClass={}", proxy.getClass());
-
         proxy.save();
         proxy.find();
-
-        // ProxyFactory 통해서 만든 프록시 객체만 사용 가능
 
         // 프록시 객체인지?
         boolean isProxy = AopUtils.isAopProxy(proxy);
@@ -50,21 +43,15 @@ public class ProxyFactoryTest {
     @Test
     @DisplayName("구체 클래스만 있으면 CGLIB 프록시 사용")
     void concreteProxy(){
-
         ConcreteService target = new ConcreteService();
-
-        ProxyFactory proxyFactory = new ProxyFactory(target); // target 추가 실제 객체
-
-        proxyFactory.addAdvice(new TimeAdvice());             // advice(부가 기능 로직) 추가 advice가 target 호출
-
+        ProxyFactory proxyFactory = new ProxyFactory(target);
+        proxyFactory.addAdvice(new TimeAdvice());
         ConcreteService proxy = (ConcreteService)proxyFactory.getProxy();
 
         log.info("targetClass={}", target.getClass());
         log.info("proxyClass={}", proxy.getClass());
 
         proxy.call();
-
-        // ProxyFactory 통해서 만든 프록시 객체만 사용 가능
 
         // 프록시 객체인지?
         boolean isProxy = AopUtils.isAopProxy(proxy);
@@ -81,7 +68,6 @@ public class ProxyFactoryTest {
         // PatternMatchUtils 연습하기
         assertThat(PatternMatchUtils.simpleMatch(new String[]{"*CGLIB*"}, proxy.getClass().toString()))
                 .isTrue();
-
     }
 
     @Test

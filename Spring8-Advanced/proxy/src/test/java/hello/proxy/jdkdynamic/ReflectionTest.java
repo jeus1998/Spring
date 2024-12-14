@@ -5,6 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class ReflectionTest {
@@ -76,6 +80,29 @@ public class ReflectionTest {
         dynamicCall(callB, target);
     }
 
+    @Test
+    void reflection4() throws Exception{
+        Hello target = new Hello();
+        List<String> list = List.of("callA", "callB");
+        Class helloClass = target.getClass();
+        List<Method> collect = Arrays.stream(helloClass.getDeclaredMethods())
+                .filter(m -> list.contains(m)).collect(Collectors.toList());
+
+        for (Method m: collect) {
+            dynamicCall(m, target);
+        }
+    }
+    @Test
+    public void supplier(){
+        Hello hello = new Hello();
+        dynamicCall(hello::callA);
+        dynamicCall(hello::callB);
+    }
+    private void dynamicCall(Supplier<String> supplier) {
+        log.info("start");
+        String result = supplier.get();
+        log.info("result={}", result);
+    }
     @Slf4j
     static class Hello{
         public String callA(){
