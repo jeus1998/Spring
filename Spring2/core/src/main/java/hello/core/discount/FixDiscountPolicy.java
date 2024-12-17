@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * 고정 할인 정책
  */
 @Component
-@Qualifier("subDiscountPolicy")
+@Qualifier(Policy.FIX_DISCOUNT)
 public class FixDiscountPolicy implements DiscountPolicy{
     private final int discountFixAmount = 1000; // 고정 금액 할인 (1000원)
     @Override

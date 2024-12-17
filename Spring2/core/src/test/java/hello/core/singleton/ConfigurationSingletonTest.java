@@ -7,6 +7,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 import org.junit.jupiter.api.Test;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import static org.assertj.core.api.Assertions.*;
 
