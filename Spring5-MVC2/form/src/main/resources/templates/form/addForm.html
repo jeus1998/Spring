@@ -47,8 +47,8 @@
         <div>
              <div>등록 지역</div>
                  <div th:each="region : ${regions}" class="form-check form-check-inline">
-                     <input type="checkbox" th:field="*{regions}" th:value="${region.key}" class="form-check-input">
-                     <label th:for="${#ids.prev('regions')}" th:text="${region.value}" class="form-check-label">서울</label>
+                     <input type="checkbox" th:field="*{regions}" th:value="${region.key}" th:id="${regionStat.count}" class="form-check-input">
+                     <label th:for="${regionStat.count}" th:text="${region.value}" class="form-check-label">서울</label>
                 </div>
         </div>
 
