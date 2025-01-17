@@ -15,15 +15,7 @@ public class TemplateCallBackTest {
     void templateCallBackTest(){
         TimeLogTemplate template = new TimeLogTemplate();
 
-        template.execute(()->{
-            log.info("비즈니스 로직1 실행");
-        });
-
-        template.execute(new CallBack() {
-            @Override
-            public void call() {
-                log.info("비즈니스 로직2 실행");
-            }
-        });
+        template.execute(() -> log.info("비즈니스 로직1 실행"));
+        template.execute(() -> log.info("비즈니스 로직2 실행"));
     }
 }
